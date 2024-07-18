@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "user-latency",
-  "version": "2.0.5",
+  "name": "user-latency-v2",
+  "version": "3.0.0",
   "type": "module",
   "description": "Display average latency in user list.",
   "scripts": {
@@ -9,7 +9,10 @@
     "build": "parcel build",
     "postbuild": "ts-node src/postbuild.ts && cd dist && bestzip module.zip *"
   },
-  "author": "mawburn <mawburn7@gmail.com>",
+  "authors": [
+    "mawburn <mawburn7@gmail.com>",
+    "abourass <abourassa@assetval.com>"
+  ],
   "license": "GNU AGPLv3",
   "devDependencies": {
     "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
@@ -54,5 +57,6 @@
       "outputFormat": "global"
     }
   },
-  "source": "src/index.ts"
+  "source": "src/index.ts",
+  "packageManager": "yarn@4.3.1"
 }

@@ -1,3 +1,27 @@
 {
-  "cSpell.words": ["abcdefhijklmnopqrstuvwxyz", "bestzip", "cssnano", "esmodules", "USERLATENCY"]
+  "cSpell.words": ["abcdefhijklmnopqrstuvwxyz", "bestzip", "cssnano", "esmodules", "USERLATENCY"],
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/.*": false,
+    "eslint*.*": false,
+    "**/tmp/**": false,
+    "**/node_modules/**": false,
+    "**/.git/objects/**": false,
+    "**/*.d.ts": false,
+    "**/*.js": false,
+    "**/*.js.map": false,
+    "**/*.lock": false,
+    "**/coverage": false,
+    "**/examples": false,
+    "**/SECURITY.md": false,
+    "**/CHANGELOG.md": false,
+    "**/logs": false,
+    "**/playwright.config.ts": false
+  },
+  "explorerExclude.backup": {}
 }
