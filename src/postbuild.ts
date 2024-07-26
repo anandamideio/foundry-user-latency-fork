@@ -64,3 +64,5 @@ setTimeout(() => {
 }, 1000)
 
 fs.writeFileSync('dist/module.json', JSON.stringify(data, null, 2))
+
+

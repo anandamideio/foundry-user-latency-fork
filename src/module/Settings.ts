@@ -8,11 +8,7 @@ export const registerSettings = () => {
     hint: `${gameInstance.i18n.localize('USERLATENCY.IntervalHint')}`,
     type: Number,
     // @ts-ignore
-    range: {
-      min: 10,
-      max: 90,
-      step: 5,
-    },
+    range: { min: 10, max: 90, step: 5, },
     default: 30,
     scope: 'world',
     config: true,
