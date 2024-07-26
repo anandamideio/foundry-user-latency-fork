@@ -1,10 +1,7 @@
 import { MODULE_NAME } from '../constants'
 import { PlayerList } from './PlayerList'
 
-export interface Pong {
-  userId: string
-  average: number
-}
+export interface Pong { userId: string, average: number }
 
 export class WebLatency {
   private static readonly HISTORY_SIZE = 10

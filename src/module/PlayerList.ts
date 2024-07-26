@@ -3,9 +3,7 @@ import { MODULE_NAME } from '../constants'
 
 import type { Pong } from './WebLatency'
 
-interface LatencyTimes {
-  [key: string]: number
-}
+interface LatencyTimes { [key: string]: number }
 
 export class PlayerList {
   private playerLatencyTimes: LatencyTimes = {}
