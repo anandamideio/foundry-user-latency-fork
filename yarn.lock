@@ -121,12 +121,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jquery@npm:^3.5.30":
+  version: 3.5.30
+  resolution: "@types/jquery@npm:3.5.30"
+  dependencies:
+    "@types/sizzle": "npm:*"
+  checksum: 10c0/7355b2b2cb44eba7a2afa4a1c653157e4bc055be1f14a4c8874e349e6860dd36ca237e538294c2d709f1ffa0d5b12a39ea97be179f3f7fb445e17e12949ccb33
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^20.14.11":
   version: 20.14.11
   resolution: "@types/node@npm:20.14.11"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/5306becc0ff41d81b1e31524bd376e958d0741d1ce892dffd586b9ae0cb6553c62b0d62abd16da8bea6b9a2c17572d360450535d7c073794b0cef9cb4e39691e
+  languageName: node
+  linkType: hard
+
+"@types/sizzle@npm:*":
+  version: 2.3.8
+  resolution: "@types/sizzle@npm:2.3.8"
+  checksum: 10c0/ab5460147ae6680cc20c2223a8f17d9f7c97144b70f00a222a1c32d68b5207696d48177ab9784dda88c74d93ed5a78dd31f74d271b15382520b423c81b4aac89
   languageName: node
   linkType: hard
 
@@ -828,6 +844,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jquery@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "jquery@npm:3.7.1"
+  checksum: 10c0/808cfbfb758438560224bf26e17fcd5afc7419170230c810dd11f5c1792e2263e2970cca8d659eb84fcd9acc301edb6d310096e450277d54be4f57071b0c82d9
+  languageName: node
+  linkType: hard
+
 "js-yaml@npm:^4.1.0":
   version: 4.1.0
   resolution: "js-yaml@npm:4.1.0"
@@ -1219,8 +1242,10 @@ __metadata:
   resolution: "user-latency-v2@workspace:."
   dependencies:
     "@magik_io/lint_golem": "npm:^2.2.3"
+    "@types/jquery": "npm:^3.5.30"
     "@types/node": "npm:^20.14.11"
     eslint: "npm:^9.7.0"
+    jquery: "npm:^3.7.1"
     typescript: "npm:^5.5.3"
     typescript-eslint: "npm:^7.16.1"
   languageName: unknown

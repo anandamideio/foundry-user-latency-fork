@@ -16,8 +16,10 @@
   "license": "GNU AGPLv3",
   "devDependencies": {
     "@magik_io/lint_golem": "^2.2.3",
+    "@types/jquery": "^3.5.30",
     "@types/node": "^20.14.11",
     "eslint": "^9.7.0",
+    "jquery": "^3.7.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.1"
   },
