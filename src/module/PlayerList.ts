@@ -1,7 +1,10 @@
-import * as styles from '../style.module.css'
+// @ts-expect-error - required for module augmentation
+import * as css from '../style.module.css'
 import { MODULE_NAME } from '../constants'
-
 import type { Pong } from './WebLatency'
+import type moduleStyle from '../../types';
+
+const styles = css as moduleStyle;
 
 interface LatencyTimes { [key: string]: number }
 
@@ -35,23 +38,22 @@ export class PlayerList {
   }
 
   updateLatencyText = (playerId: string) => {
-    const gameInstance = game as Game
+    const gameInstance = game
 
     const playerLatency = this.playerLatencyTimes[playerId]
-    const hideLatency = gameInstance.settings.get(MODULE_NAME, 'hideLatency')
+    const hideLatency = gameInstance.settings.get<boolean>(MODULE_NAME, 'hideLatency')
     const elmId = this.getId(playerId)
-    const elm =
-      (document.getElementById(elmId) as HTMLSpanElement) ?? this.makeLatencySpan(playerId)
+    const elm = (document.querySelector(`#${elmId}`) as HTMLSpanElement) ?? this.makeLatencySpan(playerId)
 
-    elm!.className = ''
+    elm.className = ''
 
     if (!playerLatency || hideLatency) {
-      elm!.classList.add(styles.userSpanHidden)
+      elm.classList.add(styles.userSpanHidden)
       return
     }
 
     const level = this.getLatencyLevel(playerLatency)
-    const microLatency = gameInstance.settings.get(MODULE_NAME, 'microLatency')
+    const microLatency = gameInstance.settings.get<number>(MODULE_NAME, 'microLatency')
 
     if (microLatency) {
       elm.innerHTML =
