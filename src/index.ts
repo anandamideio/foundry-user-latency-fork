@@ -15,7 +15,7 @@ Hooks.once('ready', function () {
 
   const webLatency = new WebLatency()
 
-  setTimeout(async() => {
-    await webLatency.monitorLatency()
+  setTimeout(() => {
+    webLatency.monitorLatency()
   }, 10000)
 })

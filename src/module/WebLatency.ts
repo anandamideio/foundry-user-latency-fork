@@ -31,7 +31,7 @@ export class WebLatency {
   }
 
   setIntervalSetting = () => {
-    const interval = (game as Game).settings.get(MODULE_NAME, 'latencyInterval') as number
+    const interval = game.settings.get<number>(MODULE_NAME, 'latencyInterval')
     const currentInterval = interval ?? this.intervalSeconds
     this.intervalSeconds = Math.max(currentInterval, WebLatency.MIN_INTERVAL_SECONDS) * 1000
   }
@@ -40,7 +40,7 @@ export class WebLatency {
 
   private performLatencyMeasurement = async () => {
     try {
-      const gameInstance = game as Game
+      const gameInstance = game;
       if (!gameInstance.socket?.connected || !gameInstance?.user?.id) return
 
       const startTime = Date.now()
@@ -61,7 +61,7 @@ export class WebLatency {
   }
 
   private sendPong = (userId: string, average: number) => {
-    const gameInstance = game as Game
+    const gameInstance = game;
 
     const pong: Pong = { userId, average }
     gameInstance.socket?.emit(`module.${MODULE_NAME}`, pong)
