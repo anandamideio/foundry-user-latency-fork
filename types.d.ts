@@ -2,7 +2,18 @@
 import JQuery from 'jquery';
 import { EventEmitter } from 'events';
 
+
 declare module '*.module.css'
+declare interface moduleStyle {
+  userSpan: string;
+  userSpanHidden: string;
+  userSpanGood: string;
+  userSpanLow: string;
+  userSpanBad: string;
+  microLatency: string;
+}
+
+export default moduleStyle;
 
 interface RollTables {
 }
