@@ -2,7 +2,7 @@ import { registerSettings } from './module/Settings'
 import { WebLatency } from './module/WebLatency'
 import { REG_NAME } from './constants'
 
-Hooks.once('init', async function () {
+Hooks.once('init', function () {
   console.log(`${REG_NAME} | Initializing ${REG_NAME}`)
 
   registerSettings()
@@ -15,7 +15,7 @@ Hooks.once('ready', function () {
 
   const webLatency = new WebLatency()
 
-  setTimeout(() => {
-    webLatency.monitorLatency()
+  setTimeout(async() => {
+    await webLatency.monitorLatency()
   }, 10000)
 })

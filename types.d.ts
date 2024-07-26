@@ -188,6 +188,11 @@ declare class _ClientSettings {
 declare const EventEmitterMixin: <T extends new (...args: any[]) => Record<any, any>>(base: T) => T & EventEmitter;
 
 declare class Game {
+  /**
+     * Localization support.
+     * @type {Localization}
+     */
+  i18n: Localization;
   /** The current game version */
   version: string;
   /** The current game build */
@@ -681,4 +686,91 @@ declare class SocketInterface {
    * @param event The event name.
    */
   offAny(event: string): void;
+}
+
+/**
+ * A helper class which assists with localization and string translation
+ * @param {string} serverLanguage       The default language configuration setting for the server
+ */
+declare class Localization {
+  /**
+   * The target language for localization
+   * @type {string}
+   */
+  lang: string;
+
+  /**
+   * The package authorized to provide default language configurations
+   * @type {string}
+   */
+  defaultModule: string;
+
+  /**
+   * The translation dictionary for the target language
+   * @type {Object}
+   */
+  translations: Record<string, string>;
+
+  /**
+   * Fallback translations if the target keys are not found
+   * @type {Object}
+   */
+  _fallback: Record<string, string>;
+
+  // /**
+  //  * Cached store of Intl.ListFormat instances.
+  //  * @type {Record<string, Intl.ListFormat>}
+  //  */
+  // #formatters: Record<string, Intl.ListFormat>;
+
+  /**
+   * Initialize the Localization module
+   * Discover available language translations and apply the current language setting
+   * @returns {Promise<void>}      A Promise which resolves once languages are initialized
+   */
+  initialize(): Promise<void>;
+
+  /**
+   * Set a language as the active translation source for the session
+   * @param {string} lang       A language string in CONFIG.supportedLanguages
+   * @returns {Promise<void>}   A Promise which resolves once the translations for the requested language are ready
+   */
+  setLanguage(lang: string): Promise<void>;
+
+  /**
+   * Discover the available supported languages from the set of packages which are provided
+   * @returns {object}         The resulting configuration of supported languages
+   * @private
+   */
+  _discoverSupportedLanguages(): Record<string, string>;
+
+  /**
+   * Prepare the dictionary of translation strings for the requested language
+   * @param {string} lang         The language for which to load translations
+   * @returns {Promise<object>}   The retrieved translations object
+   * @private
+   */
+  _getTranslations(lang: string): Promise<Record<string, string>>;
+
+  // /**
+  //  * Localize the "label" and "hint" properties for all fields in a data schema.
+  //  * @param {SchemaField} schema
+  //  * @param {string[]} prefixes
+  //  * @param {object} [options]
+  //  * @param {string} [options.prefixPath]
+  //  */
+  // static #localizeSchema(schema: SchemaField, prefixes?: string[], options?: { prefixPath?: string }): void;
+
+  // /**
+  //  * Perform one-time localization of data model definitions which localizes their label and hint properties.
+  //  */
+  // static #localizeDataModels(): void;
+
+  /**
+   * Localize a string by its key
+   * @param {string} key       The translation key to localize
+   * @param {object} [data]    Optional data to replace within the localized string
+   * @returns {string}         The localized string
+   */
+  localize(key: string, data?: Record<string, any>): string;
 }
